@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+
+    int mid = (m + 1) / 2;
+
+    vector<int> order;
+    order.push_back(mid);
+
+    for(int d = 1; order.size() < m; d++) {
+        if(mid - d >= 1)
+            order.push_back(mid - d);
+
+        if(order.size() < m && mid + d <= m)
+            order.push_back(mid + d);
+    }
+
+    for(int i = 0; i < n; i++) {
+        cout << order[i % m] << endl;
+    }
+}
